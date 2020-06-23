@@ -37,7 +37,7 @@ export default {
     title: {
       type: String,
       require: false,
-      default: "涉政信息分析系统"
+      default: "网络数据采集与分析系统"
     }
   },
   methods: {

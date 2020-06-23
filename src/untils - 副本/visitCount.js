@@ -2,10 +2,8 @@
 //type:类型   type=1、网站的访问量		type=2  不同语言的访问量
 // source：名称
 // total:访问量
-				
 
-
-const visitCount={
+const visitCount = {
 	"message": "请求成功",
 	"code": 200,
 	"success": true,

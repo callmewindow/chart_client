@@ -16,19 +16,19 @@ const topic = {
 			"source": "facebook",
 			"id": "1",
 			"topictList": [{
-				"topict": "810大埔遊行",
+				"topict": "",
 				"total": "1542"
 			}, {
-				"topict": "航空界机场集会test",
+				"topict": "",
 				"total": "321"
 			}, {
-				"topict": "8.5全港大罢工",
+				"topict": "",
 				"total": "255"
 			}, {
-				"topict": "反送中大游行",
+				"topict": "",
 				"total": "544"
 			}, {
-				"topict": "反蒙面恶法",
+				"topict": "",
 				"total": "155"
 			}]
 		}, {

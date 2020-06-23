@@ -2,11 +2,11 @@
 // source:网站名称
 // id:网站id
 // topictList {  //不同事件的访问量的数据合集
-	// "topict": "事件名称",
-	// "total": "访问量"
+// "topict": "事件名称",
+// "total": "访问量"
 // }
 
-const topic={
+const topic = {
 	"message": "请求成功",
 	"code": 200,
 	"success": true,
@@ -31,7 +31,7 @@ const topic={
 				"topict": "反蒙面恶法",
 				"total": "155"
 			}]
-		},{
+		}, {
 			"source": "Twitter",
 			"id": "3",
 			"topictList": [{

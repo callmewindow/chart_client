@@ -85,11 +85,11 @@
                       <div class="event_desc_top">
                         <p class="event_title">{{item.title}}</p>
                         <div class="event_time_add">
-                          <div class="event_time" v-if="item.type==1">
+                          <div class="event_time">
                             <img src="../../assets/img/shijian.png" alt class="timeIcon icon" />
                             <span>{{item.createTime}}</span>
                           </div>
-                          <div class="event_address" v-if="item.type==1">
+                          <div class="event_address">
                             <img src="../../assets/img/weizhi.png" alt class="addressIcon icon" />
                             <span>{{item.address}}</span>
                           </div>
@@ -106,7 +106,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="events_content" v-if="item.type==1">{{item.synopsis}}</div>
+                    <div class="events_content">{{item.synopsis}}</div>
                   </div>
                 </div>
               </li>
@@ -184,7 +184,7 @@ export default {
   },
   data() {
     return {
-      title: "网络危安信息管控与决策支持系统", //页面标题
+      title: "网络数据采集与分析系统", //页面标题
       timeSum: 60, //倒计时
       // timeValue: [
       //   "Wed Jul 31 2019 00:00:00 GMT+0800",

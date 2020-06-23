@@ -180,7 +180,7 @@ export default {
     return {
       showBack: true,
       backTitle: "返回",
-      title: "涉政信息分析系统", //页面标题
+      title: "网络数据采集与分析系统", //页面标题
       timeSum: 60,
       // timevalue: ["2020-01-03", "2020-01-03"],
       one: false,
@@ -363,7 +363,7 @@ export default {
     zheData(i) {
       let effectData = this.effectList[i].effectList;
       for (let j = 0; j < effectData.length; j++) {
-        this.xData.push(effectData[j].DataTime);
+        this.xData.push(effectData[j].dateTime);
 
         // 自媒体热度
         this.selfMediaPopularity.actual.push(
