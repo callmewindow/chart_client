@@ -8,7 +8,7 @@
           <div class="edit">
             <table cellpadding="0" cellspacing="0">
               <tr>
-                <td valign="top">群体事件标题：</td>
+                <td valign="top">事件标题：</td>
                 <td valign="top">
                   <input type="text" v-model="eventTitle" placeholder="请输入标题" class="titleInput" />
                 </td>
@@ -36,7 +36,7 @@
                 </td>
               </tr>
               <tr>
-                <td valign="top">群体事件时间：</td>
+                <td valign="top">事件时间：</td>
                 <td valign="top" style="height:55px">
                   <el-date-picker v-model="dateValue" type="date" placeholder="选择日期"></el-date-picker>
                 </td>
@@ -63,11 +63,11 @@
                     <ul class="lable">
                       <li>
                         <input type="checkbox" v-model="groupEvent" />
-                        <label for>群体性事件</label>
+                        <label for>种族歧视</label>
                       </li>
                       <li>
                         <input type="checkbox" v-model="politicEvent" />
-                        <label for>涉政事件</label>
+                        <label for>新冠疫情</label>
                       </li>
                     </ul>
                   </div>
@@ -105,7 +105,7 @@ export default {
     return {
       showBack: true,
       backTitle: "返回",
-      title: "涉政信息分析系统", //页面标题
+      title: "网络信息分析系统", //页面标题
       eventTitle: "", // 事件的标题
       eventIntro: "", // 事件的介绍
       dateValue: "", // 事件的时间
@@ -116,46 +116,18 @@ export default {
         // 事件的关键词列表
         {
           value: "选项1",
-          label: "机场"
-        },
-        {
-          value: "选项2",
-          label: "反修例"
-        },
-        {
-          value: "选项3",
-          label: "中环"
-        },
-        {
-          value: "选项4",
-          label: "恶法"
-        },
-        {
-          value: "选项5",
           label: "人权"
         },
         {
-          value: "选项6",
-          label: "集会"
-        },
-        {
-          value: "选项7",
+          value: "选项2",
           label: "游行"
         },
         {
-          value: "选项8",
-          label: "快闪"
-        },
-        {
-          value: "选项9",
-          label: "共党"
-        },
-        {
-          value: "选项10",
+          value: "选项3",
           label: "示威"
         },
         {
-          value: "选项11",
+          value: "选项4",
           label: "诉讼"
         }
       ],

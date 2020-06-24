@@ -8,7 +8,7 @@ const visitCount = {
 	"code": 200,
 	"success": true,
 	"data": {
-		"totalRows": 999524,
+		"totalRows": 21524,
 		"resultList": [{
 			"type": "1",
 			"source": "纵览中国",
