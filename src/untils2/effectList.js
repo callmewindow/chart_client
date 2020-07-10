@@ -16,7 +16,7 @@ const effectList = {
         "clicks": ["50", '99'],
         "trafficVolume": ["63", '83'],
         "forwardingVolume": ["20", '48'],
-        "dateTime": "2019-11-13"
+        "dateTime": "2020-06-17"
       }, {
         "impactIndicators": "105.04",
         "selfMediaPopularity": ["24", '65'],
@@ -26,7 +26,7 @@ const effectList = {
         "clicks": ["37", '52'],
         "trafficVolume": ["48", '63'],
         "forwardingVolume": ["47", '40'],
-        "dateTime": "2019-11-14"
+        "dateTime": "2020-06-19"
       },
       {
         "impactIndicators": "2",
@@ -37,7 +37,7 @@ const effectList = {
         "clicks": ["72", '89'],
         "trafficVolume": ["73", '63'],
         "forwardingVolume": ["42", '43'],
-        "dateTime": "2019-11-15"
+        "dateTime": "2020-06-21"
       }
       ],
     }, {
