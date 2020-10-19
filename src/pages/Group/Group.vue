@@ -153,6 +153,8 @@ import "../../../static/js/chinamap/china.js";
 import Head from "../../components/Head/Head.vue";
 import Icon from "../../components/Icon/Icon.vue";
 import BMap from "BMap";
+import * as eventAPI from "../../APIs/event.js";
+import newsetDate from "../../untils/newsetDate.js"; //地图数据和列表页数据合计
 
 var vm;
 var timer;
@@ -241,6 +243,14 @@ export default {
     // 获取事件数据
     getEventData() {
       this.eventData = this.$route.params.item;
+      // // 提取第一个事件填充没有的数据
+      // this.eventData = newsetDate.data.resultList[0];
+      // let temp = await eventAPI.getEventById(this.$route.params.eventId);
+      // let tempData = temp.data;
+      // // 批量替换当前事件已有的字段，即尽可能更新实际的数据
+      // for(let key in tempData){
+      //   this.eventData[key] = tempData[key];
+      // }
       // 关键词列表
       this.keyWordList = this.eventData.keyWord.split(",");
       this.labelWordList = this.eventData.labelWord.split(",");

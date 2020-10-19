@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PoliticsInfo from '@/pages/PoliticsInfo/PoliticsInfo'
-import PolicyAnalyze from '@/pages/PolicyAnalyze/PolicyAnalyze'
-import Group from '@/pages/Group/Group'
-import AddMessage from '@/pages/AddMessage/AddMessage'
-import test from '@/pages/test';
 
 Vue.use(Router)
 
@@ -15,29 +10,24 @@ export default new Router({
       redirect: '/Home'
     },
     {
-      path: '/test',
-      name: 'test',
-      component: test
-    },
-    {
       path: '/Home',
       name: 'PoliticsInfo',
-      component: PoliticsInfo
+      component: () => import('@/pages/PoliticsInfo/PoliticsInfo')
     },
     {
       path: '/PolicyAnalyze',
       name: 'PolicyAnalyze',
-      component: PolicyAnalyze
+      component: () => import('@/pages/PolicyAnalyze/PolicyAnalyze')
     },
     {
-      path: '/Group',
+      path: '/Group/:eventId',
       name: 'Group',
-      component: Group
+      component: () => import('@/pages/Group/Group')
     },
     {
       path: '/AddMessage',
       name: 'AddMessage',
-      component: AddMessage
+      component: () => import('@/pages/AddMessage/AddMessage')
     }
     
   ]

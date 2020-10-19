@@ -271,9 +271,6 @@ export default {
     //     }
     //   }
 
-    // 测试后端接口
-    // await this.apitest();
-
     // 获取原始数据并设置页面
     await this.initialSet();
   },
@@ -367,15 +364,10 @@ export default {
       //设置多选框默认数据
       this.value = this.options[0].label;
       this.getZheDate();
-      this.dataBox = newsetDate.data.resultList;
-    },
 
-    async apitest() {
-      let temp = {};
-      temp = await eventAPI.getEventNumber();
-      console.log(temp);
-      temp = await eventAPI.getAllEvent();
-      console.log(temp);
+      this.dataBox = newsetDate.data.resultList;
+      // this.dataBox = await eventAPI.getAllEvent();
+
     },
 
     stopTimer() {
@@ -453,20 +445,22 @@ export default {
 
     // 去涉政信息详情页或群体事件详情页
     goDetail(item) {
-      // if (item.type == 1) {
-      //   this.$router.push({ path: "/Group/" + item.id });
-      // }
+      // 传id重新获取
+      if (item.type == 1) {
+        this.$router.push({ path: "/Group/" + item.id });
+      }
       // if (item.type == 2) {
       //   this.$router.push({ path: "/PolicyAnalyze/" + item.id });
       // }
-      if (item.type == 1) {
-        this.$router.push({
-          name: "Group",
-          params: {
-            item: item
-          }
-        });
-      }
+      // 传参形式，刷新消失
+      // if (item.type == 1) {
+      //   this.$router.push({
+      //     name: "Group",
+      //     params: {
+      //       item: item
+      //     }
+      //   });
+      // }
       if (item.type == 2) {
         this.$router.push({
           name: "PolicyAnalyze",

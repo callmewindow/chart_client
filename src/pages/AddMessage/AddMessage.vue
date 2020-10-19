@@ -28,7 +28,7 @@
                   <textarea name id cols="30" rows="10" v-model="eventIntro" placeholder="请输入内容"></textarea>
                 </td>
                 <td rowspan="4" valign="top">
-                  <div class="search_resault">
+                  <div class="search_result">
                     <div v-for="item in eventList" :key="item.id">
                       {{ item }}
                     </div>
@@ -92,6 +92,7 @@ import newsetDate from "../../untils/newsetDate.js"; //地图数据和列表页�
 import "../../../static/js/chinamap/china.js";
 import Head from "../../components/Head/Head.vue";
 import Icon from "../../components/Icon/Icon.vue";
+import * as eventAPI from "../../APIs/event.js";
 
 var vm;
 var timer;
@@ -171,6 +172,8 @@ export default {
       alert("事件信息不完整，请全部填写完毕后保存");
     },
     searchEvent() {
+      this.$message.info("功能开发中，敬请期待");
+      return ;
       console.log(this.searchCon);
       console.log(this.allEvent.data.resultList);
       this.eventList = [];
