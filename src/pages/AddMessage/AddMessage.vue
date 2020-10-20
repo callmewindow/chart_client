@@ -10,11 +10,20 @@
               <tr>
                 <td valign="top">事件标题：</td>
                 <td valign="top">
-                  <input type="text" v-model="eventTitle" placeholder="请输入标题" class="titleInput" />
+                  <input
+                    type="text"
+                    v-model="eventTitle"
+                    placeholder="请输入标题"
+                    class="titleInput"
+                  />
                 </td>
                 <td valign="top">
                   <div class="search_input">
-                    <input type="text" v-model="searchContent" />
+                    <input
+                      type="text"
+                      v-model="searchContent"
+                      placeholder="请输入搜索内容"
+                    />
                     <div class="btn" @click="searchEvent">
                       <img src="../../assets/img/juxing1.png" alt />
                       <p class="searchBtn">搜索</p>
@@ -24,8 +33,15 @@
               </tr>
               <tr>
                 <td valign="top">事件介绍：</td>
-                <td valign="top" style="height:150px">
-                  <textarea name id cols="30" rows="10" v-model="eventIntro" placeholder="请输入内容"></textarea>
+                <td valign="top" style="height: 150px">
+                  <textarea
+                    name
+                    id
+                    cols="30"
+                    rows="10"
+                    v-model="eventIntro"
+                    placeholder="请输入内容"
+                  ></textarea>
                 </td>
                 <td rowspan="4" valign="top">
                   <div class="search_result">
@@ -37,15 +53,24 @@
               </tr>
               <tr>
                 <td valign="top">事件时间：</td>
-                <td valign="top" style="height:55px">
-                  <el-date-picker v-model="dateValue" type="date" placeholder="选择日期"></el-date-picker>
+                <td valign="top" style="height: 55px">
+                  <el-date-picker
+                    v-model="dateValue"
+                    type="date"
+                    placeholder="选择日期"
+                  ></el-date-picker>
                 </td>
               </tr>
               <tr>
                 <td valign="top">关键词：</td>
-                <td valign="top" style="height:80px">
+                <td valign="top" style="height: 80px">
                   <div class="news_div">
-                    <el-select v-model="keywords" multiple collapse-tags placeholder="请选择">
+                    <el-select
+                      v-model="keywords"
+                      multiple
+                      collapse-tags
+                      placeholder="请选择"
+                    >
                       <el-option
                         v-for="item in news_options"
                         :key="item.value"
@@ -57,18 +82,18 @@
                 </td>
               </tr>
               <tr>
-                <td valign="top">标签集：</td>
-                <td valign="top" style="height:80px">
+                <td valign="top">事件类型：</td>
+                <td valign="top" style="height: 80px">
                   <div class="lable_box">
                     <ul class="lable">
                       <li>
                         <input type="checkbox" v-model="groupEvent" />
-                        <label for>种族歧视</label>
+                        <label for>群体事件</label>
                       </li>
-                      <li>
+                      <!-- <li>
                         <input type="checkbox" v-model="politicEvent" />
                         <label for>新冠疫情</label>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                 </td>
@@ -100,7 +125,7 @@ export default {
   name: "AddMessage",
   components: {
     Head,
-    Icon
+    Icon,
   },
   data() {
     return {
@@ -111,69 +136,105 @@ export default {
       eventIntro: "", // 事件的介绍
       dateValue: "", // 事件的时间
       keywords: "", // 事件的关键词
-      groupEvent: false, // 群体性事件
+      groupEvent: true, // 群体性事件
       politicEvent: false, // 涉政事件
       news_options: [
         // 事件的关键词列表
         {
           value: "选项1",
-          label: "人权"
+          label: "人权",
         },
         {
           value: "选项2",
-          label: "游行"
+          label: "游行",
         },
         {
           value: "选项3",
-          label: "示威"
+          label: "示威",
         },
         {
           value: "选项4",
-          label: "诉讼"
-        }
+          label: "诉讼",
+        },
       ],
       newEvent: {}, // 上传新事件的基本内容
       searchContent: "", // 搜索的内容
       allEvent: {}, // 当前所有的事件信息
-      eventList: [] // 搜索到的事件列表
+      eventList: [], // 搜索到的事件列表
     };
   },
   created() {
     this.allEvent = newsetDate;
+    Date.prototype.Format = function (fmt) {
+      //author: meizz
+      var o = {
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        S: this.getMilliseconds(), //毫秒
+      };
+      if (/(y+)/.test(fmt))
+        fmt = fmt.replace(
+          RegExp.$1,
+          (this.getFullYear() + "").substr(4 - RegExp.$1.length)
+        );
+      for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+          fmt = fmt.replace(
+            RegExp.$1,
+            RegExp.$1.length == 1
+              ? o[k]
+              : ("00" + o[k]).substr(("" + o[k]).length)
+          );
+      return fmt;
+    };
   },
   mounted() {},
   destroyed() {},
   methods: {
-    // nothing() {
-    //   alert("功能开发中");
-    // },
-    uploadEvent() {
+    async uploadEvent() {
       if (this.eventTitle !== "") {
         if (this.eventIntro !== "") {
           if (this.dateValue !== "") {
             if (this.keywords != []) {
-              if (this.groupEvent || this.politicEvent) {
-                let newType = "";
-                if (this.groupEvent) newType = "group";
-                if (this.politicEvent) newType = "politic";
+              if (this.groupEvent) {
                 this.newEvent = {
-                  eventTitle: this.eventTitle,
-                  eventIntro: this.eventIntro,
-                  eventTime: this.dateValue,
-                  eventKeywords: this.keywords,
-                  eventType: newType
+                  title: this.eventTitle,
+                  brief:
+                    this.eventIntro.length > 40
+                      ? this.eventIntro.substr(0, 40) + "..."
+                      : this.eventIntro,
+                  intro: this.eventIntro,
+                  date: this.dateValue.Format("yyyy-MM-dd"),
+                  label: this.keywords,
                 };
                 console.log(this.newEvent);
+                // let temp = await eventAPI.createEvent(
+                //   this.newEvent.title,
+                //   this.newEvent.brief,
+                //   this.newEvent.intro,
+                //   this.newEvent.date,
+                //   this.newEvent.label
+                // );
+                // if (temp) {
+                //   this.$router.push({ path: "/Group" + temp });
+                // } else {
+                //   this.$message.error("上传新事件失败，请稍后再试");
+                // }
+                return;
               }
             }
           }
         }
       }
-      alert("事件信息不完整，请全部填写完毕后保存");
+      this.$message.warning("事件信息不完整，请全部填写完毕后再尝试上传");
     },
     searchEvent() {
-      this.$message.info("功能开发中，敬请期待");
-      return ;
+      this.$message.info("功能建设中，敬请期待");
+      return;
       console.log(this.searchCon);
       console.log(this.allEvent.data.resultList);
       this.eventList = [];
@@ -184,8 +245,8 @@ export default {
         }
       }
       console.log(this.eventList);
-    }
-  }
+    },
+  },
 };
 </script>
 

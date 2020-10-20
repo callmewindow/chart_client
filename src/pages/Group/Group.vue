@@ -241,7 +241,7 @@ export default {
   },
   methods: {
     // 获取事件数据
-    getEventData() {
+    async getEventData() {
       this.eventData = this.$route.params.item;
       // // 提取第一个事件填充没有的数据
       // this.eventData = newsetDate.data.resultList[0];

@@ -366,8 +366,8 @@ export default {
       this.getZheDate();
 
       this.dataBox = newsetDate.data.resultList;
-      // this.dataBox = await eventAPI.getAllEvent();
-
+      let ttt = await eventAPI.getAllEvent();
+      console.log(ttt);
     },
 
     stopTimer() {
@@ -446,21 +446,21 @@ export default {
     // 去涉政信息详情页或群体事件详情页
     goDetail(item) {
       // 传id重新获取
-      if (item.type == 1) {
-        this.$router.push({ path: "/Group/" + item.id });
-      }
+      // if (item.type == 1) {
+      //   this.$router.push({ path: "/Group/" + item.id });
+      // }
       // if (item.type == 2) {
       //   this.$router.push({ path: "/PolicyAnalyze/" + item.id });
       // }
       // 传参形式，刷新消失
-      // if (item.type == 1) {
-      //   this.$router.push({
-      //     name: "Group",
-      //     params: {
-      //       item: item
-      //     }
-      //   });
-      // }
+      if (item.type == 1) {
+        this.$router.push({
+          name: "Group",
+          params: {
+            item: item
+          }
+        });
+      }
       if (item.type == 2) {
         this.$router.push({
           name: "PolicyAnalyze",
@@ -721,6 +721,9 @@ export default {
     },
 
     goEventDetail(e, y) {
+      // 还是静态数据直接跳转
+      this.$message.info("功能建设中，敬请期待");
+      return;
       for (let i = 0; i < this.dataBox.length; i++) {
         if (e == this.dataBox[i].id) {
           if (this.dataBox[i].type == 1) {

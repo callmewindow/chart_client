@@ -18,7 +18,7 @@ Vue.use(VueAwesomeSwiper)
 // Http请求部分配置
 Vue.prototype.$http = axios
 // 服务器接口的地址
-axios.defaults.baseURL = 'http://120.53.13.124:5000';
+axios.defaults.baseURL = 'http://47.94.234.255:5000';
 Vue.config.productionTip = false;
 
 Vue.prototype.$echarts = echarts

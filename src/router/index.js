@@ -20,6 +20,11 @@ export default new Router({
       component: () => import('@/pages/PolicyAnalyze/PolicyAnalyze')
     },
     {
+      path: '/Group',
+      name: 'Group',
+      component: () => import('@/pages/Group/Group')
+    },
+    {
       path: '/Group/:eventId',
       name: 'Group',
       component: () => import('@/pages/Group/Group')
