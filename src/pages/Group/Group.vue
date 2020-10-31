@@ -1,6 +1,10 @@
 <template>
   <div class="PoliticsInfo">
-    <Head :title="eventData.title" :showBack="showBack" :name="backTitle"></Head>
+    <Head
+      :title="eventData.title"
+      :showBack="showBack"
+      :name="backTitle"
+    ></Head>
     <div class="PoliticsInfoBox">
       <div class="InfoWrap">
         <!-- 时间选择器 -->
@@ -32,8 +36,12 @@
                       <td class="td1" valign="top">关键词：</td>
                       <td class="td2" valign="top">
                         <ul class="news">
-                          <li class="every_news" v-for="(item,index) in keyWordList" :key="index">
-                            <p>{{item}}</p>
+                          <li
+                            class="every_news"
+                            v-for="(item, index) in keyWordList"
+                            :key="index"
+                          >
+                            <p>{{ item }}</p>
                           </li>
                         </ul>
                       </td>
@@ -41,33 +49,38 @@
                         <div class="goleft">
                           <div class="leave">
                             <div class="effect">
-                              <div v-if="eventData.grade==1">
+                              <div v-if="eventData.grade == 1">
                                 <img src="../../assets/img/danger1.png" alt />
-                                <span style="color:#741B33">一级</span>
+                                <span style="color: #741b33">一级</span>
                               </div>
-                              <div v-if="eventData.grade==2">
+                              <div v-if="eventData.grade == 2">
                                 <img src="../../assets/img/danger2.png" alt />
-                                <span style="color:#773F3B">二级</span>
+                                <span style="color: #773f3b">二级</span>
                               </div>
-                              <div v-if="eventData.grade==3">
+                              <div v-if="eventData.grade == 3">
                                 <img src="../../assets/img/danger3.png" alt />
-                                <span style="color:#7B8744">三级</span>
+                                <span style="color: #7b8744">三级</span>
                               </div>
-                              <div v-if="eventData.grade==4">
+                              <div v-if="eventData.grade == 4">
                                 <img src="../../assets/img/danger4.png" alt />
-                                <span style="color:#B7F2F9">四级</span>
+                                <span style="color: #b7f2f9">四级</span>
                               </div>
-                              <div v-if="eventData.grade==5">
+                              <div v-if="eventData.grade == 5">
                                 <img src="../../assets/img/danger5.png" alt />
-                                <span style="color:#E6CCFF">五级</span>
+                                <span style="color: #e6ccff">五级</span>
                               </div>
                             </div>
                             <div class="per_box">
                               <p>影响力指标</p>
                               <div class="perbox">
-                                <div class="per" :style="'width:'+eventData.impactIndicators+'%'"></div>
+                                <div
+                                  class="per"
+                                  :style="
+                                    'width:' + eventData.impactIndicators + '%'
+                                  "
+                                ></div>
                               </div>
-                              <p>{{eventData.impactIndicators}}</p>
+                              <p>{{ eventData.impactIndicators }}</p>
                             </div>
                           </div>
                         </div>
@@ -79,30 +92,32 @@
                         <ul class="lables">
                           <li
                             class="every_lable"
-                            v-for="(item,index) in labelWordList"
+                            v-for="(item, index) in labelWordList"
                             :key="index"
                           >
-                            <p>{{item}}</p>
+                            <p>{{ item }}</p>
                           </li>
                         </ul>
                       </td>
                     </tr>
                   </table>
                 </div>
-                <p class="content">{{eventData.detailsynopsis}}</p>
+                <p class="content">{{ eventData.detailsynopsis }}</p>
               </div>
             </div>
             <div class="mesPredicted common">
               <Icon></Icon>
               <div class="mesPredicted_box">
-                <p class="title" style="margin:0.3125rem 0 0.3125rem">事件发生地</p>
+                <p class="title" style="margin: 0.3125rem 0 0.3125rem">
+                  事件发生地
+                </p>
                 <div id="myChartMap"></div>
               </div>
             </div>
           </div>
           <div class="gropBottom common">
             <Icon></Icon>
-            <div style="display:flex;width:100%;height:100%">
+            <div style="display: flex; width: 100%; height: 100%">
               <div class="relation">
                 <div class="select_local">
                   <div>
@@ -116,7 +131,11 @@
                     </el-select>
                   </div>
                 </div>
-                <div id="myChartActive" class="myCharts" :style="{width:'100%',height:'80%'}"></div>
+                <div
+                  id="myChartActive"
+                  class="myCharts"
+                  :style="{ width: '100%', height: '80%' }"
+                ></div>
               </div>
               <div class="select_event">
                 <template>
@@ -162,7 +181,7 @@ export default {
   name: "Group",
   components: {
     Head,
-    Icon
+    Icon,
   },
   data() {
     return {
@@ -180,22 +199,22 @@ export default {
       // 自媒体热度
       selfMediaPopularity: {
         actual: [],
-        predicted: []
+        predicted: [],
       },
       // 自媒体参与度
       selfMediaParticipation: {
         actual: [],
-        predicted: []
+        predicted: [],
       },
       // 情感倾向
       emotional: {
         actual: [],
-        predicted: []
+        predicted: [],
       },
       // 用户活跃度
       liveness: {
         actual: [],
-        predicted: []
+        predicted: [],
       },
       one: false,
       two: true,
@@ -218,7 +237,7 @@ export default {
       optionActive: {},
       chart1: "",
       flag: true,
-      flag2: false
+      flag2: false,
     };
   },
   created() {
@@ -237,22 +256,33 @@ export default {
       if (newValue != oldValue) {
         this.updateRelation();
       }
-    }
+    },
   },
   methods: {
     // 获取事件数据
     async getEventData() {
-      this.eventData = this.$route.params.item;
-      // // 提取第一个事件填充没有的数据
-      // this.eventData = newsetDate.data.resultList[0];
-      // let temp = await eventAPI.getEventById(this.$route.params.eventId);
-      // let tempData = temp.data;
-      // // 批量替换当前事件已有的字段，即尽可能更新实际的数据
-      // for(let key in tempData){
-      //   this.eventData[key] = tempData[key];
-      // }
-      // 关键词列表
-      this.keyWordList = this.eventData.keyWord.split(",");
+      // this.eventData = this.$route.params.item;
+      // 提取第一个事件填充没有的数据
+      this.eventData = newsetDate.data.resultList[0];
+      try {
+        let temp = await eventAPI.getEventById(this.$route.params.eventId);
+        if (temp.data.message != "无对应id") {
+          // 检索成功才会进行值的替换
+          let tempData = temp.data.data;
+          // 批量替换当前事件已有的字段，即尽可能更新实际的数据
+          for (let key in tempData) {
+            if (key == "relation") continue;
+            this.eventData[key] = tempData[key];
+          }
+          this.keyWordList = this.eventData.keyWord;
+        } else {
+          this.$message.warning("获取事件信息失败，请稍后再试");
+          this.keyWordList = this.eventData.keyWord.split(",");
+        }
+      } catch (error) {
+        this.$message.warning("获取事件信息失败，请稍后再试");
+        this.keyWordList = this.eventData.keyWord.split(",");
+      }
       this.labelWordList = this.eventData.labelWord.split(",");
 
       this.mapData = {
@@ -260,8 +290,8 @@ export default {
         value: [
           this.eventData.longitude,
           this.eventData.latitude,
-          this.eventData.number
-        ]
+          this.eventData.number,
+        ],
       };
 
       let dataBox = this.eventData.relation[0].effectList;
@@ -298,7 +328,7 @@ export default {
       for (let i = 0; i < this.currentRelation.length; i++) {
         let obj = {
           label: this.currentRelation[i].name,
-          value: this.currentRelation[i].value
+          value: this.currentRelation[i].value,
         };
         this.options.push(obj);
       }
@@ -340,8 +370,8 @@ export default {
               symbolSize: node[j].symbolSize / 3,
               category: node[j].category,
               itemStyle: {
-                color: "#827EE4"
-              }
+                color: "#827EE4",
+              },
             };
             this.node.push(obj);
           }
@@ -350,8 +380,8 @@ export default {
               source: relation[j].source,
               target: relation[j].target,
               label: {
-                show: false
-              }
+                show: false,
+              },
             };
             this.relation.push(obj);
           }
@@ -373,22 +403,22 @@ export default {
           // 自媒体热度
           this.selfMediaPopularity = {
             actual: [],
-            predicted: []
+            predicted: [],
           };
           // 自媒体参与度
           this.selfMediaParticipation = {
             actual: [],
-            predicted: []
+            predicted: [],
           };
           // 情感倾向
           this.emotional = {
             actual: [],
-            predicted: []
+            predicted: [],
           };
           // 用户活跃度
           this.liveness = {
             actual: [],
-            predicted: []
+            predicted: [],
           };
           let dataBox = this.currentRelation[i].effectList;
           for (let j = 0; j < dataBox.length; j++) {
@@ -446,15 +476,15 @@ export default {
           boundaryGap: false,
           axisLine: {
             lineStyle: {
-              color: "#ffffff"
-            }
+              color: "#ffffff",
+            },
           },
           splitLine: {
             show: true,
             lineStyle: {
-              type: "dashed"
-            }
-          }
+              type: "dashed",
+            },
+          },
         },
         yAxis: {
           type: "value",
@@ -463,12 +493,12 @@ export default {
           interval: 20,
           axisLine: {
             lineStyle: {
-              color: "#ffffff"
-            }
+              color: "#ffffff",
+            },
           },
           splitLine: {
-            show: false
-          }
+            show: false,
+          },
         },
         series: [
           {
@@ -476,9 +506,9 @@ export default {
             type: "line",
             lineStyle: {
               color: "#fb6237",
-              width: 1
+              width: 1,
             },
-            symbolSize: 0
+            symbolSize: 0,
           },
           {
             data: this.selfMediaPopularity.predicted,
@@ -486,11 +516,11 @@ export default {
             lineStyle: {
               color: "#fb6237",
               width: 1,
-              type: "dashed"
+              type: "dashed",
             },
-            symbolSize: 0
-          }
-        ]
+            symbolSize: 0,
+          },
+        ],
       };
       this.chartZheHot.clear();
       this.chartZheHot.setOption(this.option);
@@ -507,15 +537,15 @@ export default {
           boundaryGap: false,
           axisLine: {
             lineStyle: {
-              color: "#ffffff"
-            }
+              color: "#ffffff",
+            },
           },
           splitLine: {
             show: true,
             lineStyle: {
-              type: "dashed"
-            }
-          }
+              type: "dashed",
+            },
+          },
         },
         yAxis: {
           type: "value",
@@ -524,12 +554,12 @@ export default {
           interval: 20,
           axisLine: {
             lineStyle: {
-              color: "#ffffff"
-            }
+              color: "#ffffff",
+            },
           },
           splitLine: {
-            show: false
-          }
+            show: false,
+          },
         },
         series: [
           {
@@ -537,9 +567,9 @@ export default {
             type: "line",
             lineStyle: {
               color: "#07e9db",
-              width: 1
+              width: 1,
             },
-            symbolSize: 0
+            symbolSize: 0,
           },
           {
             data: this.selfMediaParticipation.predicted,
@@ -547,11 +577,11 @@ export default {
             lineStyle: {
               color: "#07e9db",
               width: 1,
-              type: "dashed"
+              type: "dashed",
             },
-            symbolSize: 0
-          }
-        ]
+            symbolSize: 0,
+          },
+        ],
       };
       this.chartZhePartIn.clear();
       this.chartZhePartIn.setOption(this.option);
@@ -568,15 +598,15 @@ export default {
           boundaryGap: false,
           axisLine: {
             lineStyle: {
-              color: "#ffffff"
-            }
+              color: "#ffffff",
+            },
           },
           splitLine: {
             show: true,
             lineStyle: {
-              type: "dashed"
-            }
-          }
+              type: "dashed",
+            },
+          },
         },
         yAxis: {
           type: "value",
@@ -585,12 +615,12 @@ export default {
           interval: 20,
           axisLine: {
             lineStyle: {
-              color: "#ffffff"
-            }
+              color: "#ffffff",
+            },
           },
           splitLine: {
-            show: false
-          }
+            show: false,
+          },
         },
         series: [
           {
@@ -598,9 +628,9 @@ export default {
             type: "line",
             lineStyle: {
               color: "#827ee4",
-              width: 1
+              width: 1,
             },
-            symbolSize: 0
+            symbolSize: 0,
           },
           {
             data: this.emotional.predicted,
@@ -608,11 +638,11 @@ export default {
             lineStyle: {
               color: "#827ee4",
               width: 1,
-              type: "dashed"
+              type: "dashed",
             },
-            symbolSize: 0
-          }
-        ]
+            symbolSize: 0,
+          },
+        ],
       };
       this.chartZheEmotion.clear();
       this.chartZheEmotion.setOption(this.option);
@@ -629,15 +659,15 @@ export default {
           boundaryGap: false,
           axisLine: {
             lineStyle: {
-              color: "#ffffff"
-            }
+              color: "#ffffff",
+            },
           },
           splitLine: {
             show: true,
             lineStyle: {
-              type: "dashed"
-            }
-          }
+              type: "dashed",
+            },
+          },
         },
         yAxis: {
           type: "value",
@@ -646,12 +676,12 @@ export default {
           interval: 20,
           axisLine: {
             lineStyle: {
-              color: "#ffffff"
-            }
+              color: "#ffffff",
+            },
           },
           splitLine: {
-            show: false
-          }
+            show: false,
+          },
         },
         series: [
           {
@@ -659,9 +689,9 @@ export default {
             type: "line",
             lineStyle: {
               color: "#f2123c",
-              width: 1
+              width: 1,
             },
-            symbolSize: 0
+            symbolSize: 0,
           },
           {
             data: this.liveness.predicted,
@@ -669,11 +699,11 @@ export default {
             lineStyle: {
               color: "#f2123c",
               width: 1,
-              type: "dashed"
+              type: "dashed",
             },
-            symbolSize: 0
-          }
-        ]
+            symbolSize: 0,
+          },
+        ],
       };
       this.chartZheLive.clear();
       this.chartZheLive.setOption(this.option);
@@ -688,9 +718,9 @@ export default {
         backgroundColor: "transparent", // 背景颜色
         tooltip: {
           // 提示框的配置
-          formatter: function(param) {
+          formatter: function (param) {
             return param.data.nameDetail;
-          }
+          },
         },
 
         series: [
@@ -703,7 +733,7 @@ export default {
               // 力引导布局相关的配置项，力引导布局是模拟弹簧电荷模型在每两个节点之间添加一个斥力，每条边的两个节点之间添加一个引力，每次迭代节点会在各个斥力和引力的作用下移动位置，多次迭代后节点会静止在一个受力平衡的位置，达到整个模型的能量最小化。
               // 力引导布局的结果有良好的对称性和局部聚合性，也比较美观。
               repulsion: 150, // [ default: 50 ]节点之间的斥力因子(关系对象之间的距离)。支持设置成数组表达斥力的范围，此时不同大小的值会线性映射到不同的斥力。值越大则斥力越大
-              edgeLength: [50, 20] // [ default: 30 ]边的两个节点之间的距离(关系对象连接线两端对象的距离,会根据关系对象值得大小来判断距离的大小)，
+              edgeLength: [50, 20], // [ default: 30 ]边的两个节点之间的距离(关系对象连接线两端对象的距离,会根据关系对象值得大小来判断距离的大小)，
               // 这个距离也会受 repulsion。支持设置成数组表达边长的范围，此时不同大小的值会线性映射到不同的长度。值越小则长度越长。如下示例:
               // 值最大的边长度会趋向于 10，值最小的边长度会趋向于 50      edgeLength: [10, 50]
             },
@@ -718,8 +748,8 @@ export default {
                 width: 2, // 线宽[ default: 1 ]
                 type: "solid", // 线的类型[ default: solid ]   'dashed'    'dotted'
                 opacity: 0.5, // 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。[ default: 0.5 ]
-                curveness: 0.2 // 边的曲度，支持从 0 到 1 的值，值越大曲度越大。[ default: 0 ]
-              }
+                curveness: 0.2, // 边的曲度，支持从 0 到 1 的值，值越大曲度越大。[ default: 0 ]
+              },
             },
             label: {
               // 关系对象上的标签
@@ -728,35 +758,35 @@ export default {
                 position: "bottom", // 标签位置:'top''left''right''bottom''inside''insideLeft''insideRight''insideTop''insideBottom''insideTopLeft''insideBottomLeft''insideTopRight''insideBottomRight'
                 textStyle: {
                   // 文本样式
-                  fontSize: 12
-                }
-              }
+                  fontSize: 12,
+                },
+              },
             },
             edgeLabel: {
               // 连接两个关系对象的线上的标签
               normal: {
                 show: true,
                 textStyle: {
-                  fontSize: 11
+                  fontSize: 11,
                 },
-                formatter: function(param) {
+                formatter: function (param) {
                   // 标签内容
                   return param.data.category;
-                }
-              }
+                },
+              },
             },
             data: this.node,
             links: this.relation,
-            category: this.categories
-          }
+            category: this.categories,
+          },
         ],
         animationEasingUpdate: "quinticInOut", // 数据更新动画的缓动效果。[ default: cubicOut ]    "quinticInOut"
-        animationDurationUpdate: 100 // 数据更新动画的时长。[ default: 300 ]
+        animationDurationUpdate: 100, // 数据更新动画的时长。[ default: 300 ]
       };
       this.chart1.clear();
       this.chart1.setOption(this.optionActive);
-    }
-  }
+    },
+  },
 };
 </script>
 

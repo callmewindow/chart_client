@@ -19,19 +19,18 @@ export const getEventById = eventId => {
 };
 
 // 创建新事件
-export const createEvent = (title, intro, detail, date, labelList) => {
+export const createEvent = (title, intro, detail, labelList) => {
   return axios({
     headers: {
       "Content-Type": "application/json"
     },
     method: "POST",
     url: `/createEvent`,
-    data: QS({
+    data: {
       title: title,
       synopsis: intro,
       detailSynopsis: detail,
-      time: date,
       labelList: labelList
-    })
+    }
   });
 };

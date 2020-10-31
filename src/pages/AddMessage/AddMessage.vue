@@ -53,12 +53,19 @@
               </tr>
               <tr>
                 <td valign="top">事件时间：</td>
-                <td valign="top" style="height: 55px">
-                  <el-date-picker
+                <td valign="top" style="height: 55px;">
+                  <!-- <el-date-picker
                     v-model="dateValue"
                     type="date"
                     placeholder="选择日期"
-                  ></el-date-picker>
+                  ></el-date-picker> -->
+                  <input
+                    style="cursor: not-allowed"
+                    type="text"
+                    disabled
+                    placeholder="新建事件的时间会自动生成，不必填写"
+                    class="titleInput"
+                  />
                 </td>
               </tr>
               <tr>
@@ -68,8 +75,10 @@
                     <el-select
                       v-model="keywords"
                       multiple
-                      collapse-tags
-                      placeholder="请选择"
+                      filterable
+                      allow-create
+                      default-first-option
+                      placeholder="请选择或输入"
                     >
                       <el-option
                         v-for="item in news_options"
@@ -88,7 +97,7 @@
                     <ul class="lable">
                       <li>
                         <input type="checkbox" v-model="groupEvent" />
-                        <label for>群体事件</label>
+                        <label for>群体性事件</label>
                       </li>
                       <!-- <li>
                         <input type="checkbox" v-model="politicEvent" />
@@ -141,19 +150,19 @@ export default {
       news_options: [
         // 事件的关键词列表
         {
-          value: "选项1",
+          value: "人权",
           label: "人权",
         },
         {
-          value: "选项2",
+          value: "游行",
           label: "游行",
         },
         {
-          value: "选项3",
+          value: "示威",
           label: "示威",
         },
         {
-          value: "选项4",
+          value: "诉讼",
           label: "诉讼",
         },
       ],
@@ -198,32 +207,38 @@ export default {
     async uploadEvent() {
       if (this.eventTitle !== "") {
         if (this.eventIntro !== "") {
-          if (this.dateValue !== "") {
+          if (this.dateValue === "") {
             if (this.keywords != []) {
               if (this.groupEvent) {
                 this.newEvent = {
                   title: this.eventTitle,
                   brief:
-                    this.eventIntro.length > 40
-                      ? this.eventIntro.substr(0, 40) + "..."
+                    this.eventIntro.length > 23
+                      ? this.eventIntro.substr(0, 23) + "..."
                       : this.eventIntro,
                   intro: this.eventIntro,
-                  date: this.dateValue.Format("yyyy-MM-dd"),
+                  // date: this.dateValue.Format("yyyy-MM-dd"),
                   label: this.keywords,
                 };
-                console.log(this.newEvent);
-                // let temp = await eventAPI.createEvent(
-                //   this.newEvent.title,
-                //   this.newEvent.brief,
-                //   this.newEvent.intro,
-                //   this.newEvent.date,
-                //   this.newEvent.label
-                // );
-                // if (temp) {
-                //   this.$router.push({ path: "/Group" + temp });
-                // } else {
-                //   this.$message.error("上传新事件失败，请稍后再试");
-                // }
+                try {
+                  console.log(this.newEvent);
+                  let temp = await eventAPI.createEvent(
+                    this.newEvent.title,
+                    this.newEvent.brief,
+                    this.newEvent.intro,
+                    // this.newEvent.date,
+                    this.newEvent.label
+                  );
+                  console.log(temp)
+                  if (temp) {
+                    this.$message.success("新建事件成功")
+                    // this.$router.push({ path: "/Group/" + temp });
+                  } else {
+                    this.$message.error("上传新事件失败，请稍后再试");
+                  }
+                } catch (error) {
+                  this.$message.error("上传新事件失败，请稍后再试");
+                }
                 return;
               }
             }

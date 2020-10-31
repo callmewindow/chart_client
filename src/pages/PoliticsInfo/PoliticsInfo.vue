@@ -6,26 +6,38 @@
         <!-- 时间选择器 -->
         <div class="selectTime">
           <span
-            v-show="timeSum>0&&timeSum<60"
-            style="color:rgba(255,255,255,0.68);display:inline-block;margin-right:10px"
-          >({{timeSum}}s)</span>
+            v-show="timeSum > 0 && timeSum < 60"
+            style="
+              color: rgba(255, 255, 255, 0.68);
+              display: inline-block;
+              margin-right: 10px;
+            "
+            >({{ timeSum }}s)</span
+          >
           <el-date-picker
             v-model="timeValue"
             type="daterange"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
-            style="cursor:pointer"
+            style="cursor: pointer"
             @change="getDateValue()"
           ></el-date-picker>
           <button
             @click="stopTimer"
-            style="background:transparent;color:#fff;border:1px solid #fff;cursor:pointer"
-          >stop</button>
+            style="
+              background: transparent;
+              color: #fff;
+              border: 1px solid #fff;
+              cursor: pointer;
+            "
+          >
+            stop
+          </button>
           <img
             src="../../assets/img/tianjia.png"
             alt
-            style="margin-left:10px;cursor:pointer"
+            style="margin-left: 10px; cursor: pointer"
             @click="goAdd"
           />
         </div>
@@ -33,24 +45,28 @@
         <div class="container">
           <div class="pageView common">
             <icon></icon>
-            <p style="color:white;font-weight:500">数据总量</p>
+            <p style="color: white; font-weight: 500">数据总量</p>
             <div class="view_box">
-              <p style="margin-bottom:1.25rem;font-weight:500">
+              <p style="margin-bottom: 1.25rem; font-weight: 500">
                 总量：
-                <span>{{visitCount.data.totalRows}}</span>
+                <span>{{ visitCount.data.totalRows }}</span>
               </p>
               <ul class="viewCount">
-                <li class="everyView" v-for="(item,index) in locationVist" :key="index">
-                  <span>{{item.source}}</span>
+                <li
+                  class="everyView"
+                  v-for="(item, index) in locationVist"
+                  :key="index"
+                >
+                  <span>{{ item.source }}</span>
                   <span>：</span>
-                  <span>{{item.total}}</span>
+                  <span>{{ item.total }}</span>
                 </li>
               </ul>
               <ul class="language">
-                <li v-for="(item,index) in lanVisit" :key="index">
-                  <span>{{item.source}}</span>
+                <li v-for="(item, index) in lanVisit" :key="index">
+                  <span>{{ item.source }}</span>
                   <span>:</span>
-                  <span>{{item.total}}</span>
+                  <span>{{ item.total }}</span>
                 </li>
               </ul>
             </div>
@@ -61,52 +77,80 @@
             <ul class="eventBox">
               <li
                 class="events_introduced"
-                v-for="(item,index) in infoArr"
+                v-for="(item, index) in infoArr"
                 :key="index"
                 @click="goDetail(item)"
               >
                 <div class="events_introduced_box">
                   <div class="danger_leave">
                     <div>
-                      <img src="../../assets/img/danger1.png" alt v-if="item.grade==1" />
-                      <img src="../../assets/img/danger2.png" alt v-if="item.grade==2" />
-                      <img src="../../assets/img/danger3.png" alt v-if="item.grade==3" />
-                      <img src="../../assets/img/danger4.png" alt v-if="item.grade==4" />
-                      <img src="../../assets/img/danger5.png" alt v-if="item.grade==5" />
-                      <p v-if="item.grade==1" style="color:#741B33">一级</p>
-                      <p v-if="item.grade==2" style="color:#773F3B">二级</p>
-                      <p v-if="item.grade==3" style="color:#7B8744">三级</p>
-                      <p v-if="item.grade==4" style="color:#B7F2F9">四级</p>
-                      <p v-if="item.grade==5" style="color:#E6CCFF">五级</p>
+                      <img
+                        src="../../assets/img/danger1.png"
+                        alt
+                        v-if="item.grade == 1"
+                      />
+                      <img
+                        src="../../assets/img/danger2.png"
+                        alt
+                        v-if="item.grade == 2"
+                      />
+                      <img
+                        src="../../assets/img/danger3.png"
+                        alt
+                        v-if="item.grade == 3"
+                      />
+                      <img
+                        src="../../assets/img/danger4.png"
+                        alt
+                        v-if="item.grade == 4"
+                      />
+                      <img
+                        src="../../assets/img/danger5.png"
+                        alt
+                        v-if="item.grade == 5"
+                      />
+                      <p v-if="item.grade == 1" style="color: #741b33">一级</p>
+                      <p v-if="item.grade == 2" style="color: #773f3b">二级</p>
+                      <p v-if="item.grade == 3" style="color: #7b8744">三级</p>
+                      <p v-if="item.grade == 4" style="color: #b7f2f9">四级</p>
+                      <p v-if="item.grade == 5" style="color: #e6ccff">五级</p>
                     </div>
                   </div>
                   <div class="event_desc_box">
                     <div class="event_desc">
                       <div class="event_desc_top">
-                        <p class="event_title">{{item.title}}</p>
+                        <p class="event_title">{{ item.title }}</p>
                         <div class="event_time_add">
                           <div class="event_time">
-                            <img src="../../assets/img/shijian.png" alt class="timeIcon icon" />
-                            <span>{{item.createTime}}</span>
+                            <img
+                              src="../../assets/img/shijian.png"
+                              alt
+                              class="timeIcon icon"
+                            />
+                            <span>{{ item.createTime }}</span>
                           </div>
                           <div class="event_address">
-                            <img src="../../assets/img/weizhi.png" alt class="addressIcon icon" />
-                            <span>{{item.address}}</span>
+                            <img
+                              src="../../assets/img/weizhi.png"
+                              alt
+                              class="addressIcon icon"
+                            />
+                            <span>{{ item.address }}</span>
                           </div>
                           <div class="event_effect">
-                            <p style="margin-right:0.25rem;">影响力指标</p>
+                            <p style="margin-right: 0.25rem">影响力指标</p>
                             <div class="effect_con">
                               <div
                                 class="effect_proportion"
-                                :style="'width:'+item.impactIndicators+'%'"
+                                :style="'width:' + item.impactIndicators + '%'"
                               ></div>
                             </div>
-                            <p>{{item.impactIndicators}}%</p>
+                            <p>{{ item.impactIndicators }}%</p>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="events_content">{{item.synopsis}}</div>
+                    <div class="events_content">{{ item.synopsis }}</div>
                   </div>
                 </div>
               </li>
@@ -120,17 +164,17 @@
               <swiper
                 :options="swiperOption"
                 ref="mySwiper"
-                v-if="warningList.length!=0"
+                v-if="warningList.length != 0"
                 class="swiper"
               >
                 <swiper-slide
-                  v-for="(item,index) in this.warningList"
+                  v-for="(item, index) in this.warningList"
                   :key="index"
                   class="swiper-slide"
                 >
-                  <li @click="goEventDetail(item.id,index)">
+                  <li @click="goEventDetail(item.id, index)">
                     <img src="../../assets/img/yujing.png" alt />
-                    <p>{{item.title}}</p>
+                    <p>{{ item.title }}</p>
                   </li>
                 </swiper-slide>
               </swiper>
@@ -180,7 +224,7 @@ export default {
     Head,
     Icon,
     swiper,
-    swiperSlide
+    swiperSlide,
   },
   data() {
     return {
@@ -190,7 +234,7 @@ export default {
       //   "Wed Jul 31 2019 00:00:00 GMT+0800",
       //   "Wed Jul 31 2019 00:00:00 GMT+0800"
       // ], //时间段选择
-      timeValue: ["2020-01-13", "2020-01-13"], //时间段选择
+      timeValue: ["2019-05-01", "2019-05-10"], //时间段选择
       warningList: [], // 事件警告的列表
 
       options: [], // 柱状图的选项列表
@@ -204,7 +248,7 @@ export default {
         // slidesOffsetBefore: 5,
         autoplay: {
           delay: 200000, //1.5秒切换一次
-          disableOnInteraction: false
+          disableOnInteraction: false,
         },
 
         freeMode: true,
@@ -213,7 +257,7 @@ export default {
         direction: "vertical",
         autoplayDisableOnInteraction: false,
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
-        observeParents: true //修改swiper的父元素时，自动初始化swiper
+        observeParents: true, //修改swiper的父元素时，自动初始化swiper
       },
 
       // 访问量数据
@@ -231,46 +275,10 @@ export default {
       infoArr: [], // 当前时间段内发生的事件
       dataBox: [], // 全部事件的数据
       myChartMap: "",
-      mapOption: []
+      mapOption: [],
     };
   },
   async created() {
-    // //定义异步方法
-    //   async getUserInfo() {
-    //     //在异常获取中进行
-    //     try {
-    //       //传的值需要按照接口的定义来
-    //       //利用const类型变量接受返回值（这里的返回值就是后端的返回值）
-    //       const userInfo = await userAPI.getUserInfo(this.$store.state.userId);
-    //       //直接整个返回值转移
-    //       //或者从中提取部分内容
-    //       //（具体能提取那些值建议先用console输出然后再调试窗口进行查看）
-    //       window.console.log(userInfo.data);
-    //       let userInfoNow = userInfo.data.user_info;
-    //       this.user = userInfoNow;
-    //       this.newNickname = userInfoNow.nickname;
-    //       if (this.user.userIntro) {
-    //         this.newUserIntro = this.user.userIntro;
-    //       }
-    //       if (this.user.expert) {
-    //         this.expert = this.user.expert;
-    //       }
-    //       this.$store.state.messages = userInfoNow.messages;
-    //       let msg = this.$store.state.messages;
-    //       let cnt = 0;
-    //       for (let i = 0; i < msg.length; i++) {
-    //         if (msg[i].noticeRead !== 'yes') {
-    //           cnt++;
-    //         }
-    //       }
-    //       this.$store.state.messageNum = cnt;
-    //     } catch (e) {
-    //       //出错就利用el的消息提示输出错误
-    //       this.$message.error(e.toString());
-    //       await this.$router.push({path: '/Home'});
-    //     }
-    //   }
-
     // 获取原始数据并设置页面
     await this.initialSet();
   },
@@ -302,7 +310,7 @@ export default {
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper;
-    }
+    },
   },
   watch: {
     value(newValue, oldValue) {
@@ -312,7 +320,7 @@ export default {
       }
     },
     timeSum(newValue, oldValue) {
-      return ;
+      return;
       if (newValue <= 0) {
         let _this = this;
         clearInterval(timerSum);
@@ -334,7 +342,7 @@ export default {
           }, 2000);
         }
       }
-    }
+    },
   },
   methods: {
     async initialSet() {
@@ -356,7 +364,7 @@ export default {
       for (let i = 0; i < topicMes.length; i++) {
         let obj = {
           value: topicMes[i].id,
-          label: topicMes[i].source
+          label: topicMes[i].source,
         };
         this.options.push(obj);
         this.topicList.push(topicMes[i]);
@@ -365,9 +373,19 @@ export default {
       this.value = this.options[0].label;
       this.getZheDate();
 
-      this.dataBox = newsetDate.data.resultList;
-      let ttt = await eventAPI.getAllEvent();
-      console.log(ttt);
+      // this.dataBox = newsetDate.data.resultList;
+      try {
+        let eventsReturn = await eventAPI.getAllEvent();
+        if (eventsReturn.status == 200) {
+          this.dataBox = eventsReturn.data.data;
+          this.getAllData();
+          // console.log(eventsReturn)
+        } else {
+          this.$message.warning("服务器发生未知错误，请稍后再试");
+        }
+      } catch (error) {
+        this.$message.warning("服务器发生未知错误，请稍后再试");
+      }
     },
 
     stopTimer() {
@@ -389,7 +407,7 @@ export default {
 
     // 处理列表页和地图的数据
     getAllData() {
-      console.log(this.timeValue[0], this.timeValue[1]);
+      // console.log(this.timeValue[0], this.timeValue[1]);
       // 处理列表页数据
       // 先获取在当前时间内的数据
       // 获得开始和结束的时间（不带时分秒）
@@ -399,12 +417,12 @@ export default {
       let current_end = this.getFormatTime(
         new Date(this.timeValue[1]).getTime()
       );
-      console.log(current_start, current_end);
+      // console.log(current_start, current_end);
 
       // 获得开始和结束的时间戳（不带时分秒）
       let current_start_tamp = new Date(current_start).getTime();
       let current_end_tamp = new Date(current_end).getTime();
-      console.log(current_start_tamp, current_end_tamp);
+      // console.log(current_start_tamp, current_end_tamp);
 
       for (let i = 0; i < this.dataBox.length; i++) {
         let everyTamp = new Date(
@@ -446,27 +464,27 @@ export default {
     // 去涉政信息详情页或群体事件详情页
     goDetail(item) {
       // 传id重新获取
-      // if (item.type == 1) {
-      //   this.$router.push({ path: "/Group/" + item.id });
-      // }
+      if (item.type == 1) {
+        this.$router.push({ path: "/Group/" + item.id });
+      }
       // if (item.type == 2) {
       //   this.$router.push({ path: "/PolicyAnalyze/" + item.id });
       // }
       // 传参形式，刷新消失
-      if (item.type == 1) {
-        this.$router.push({
-          name: "Group",
-          params: {
-            item: item
-          }
-        });
-      }
+      // if (item.type == 1) {
+      //   this.$router.push({
+      //     name: "Group",
+      //     params: {
+      //       item: item,
+      //     },
+      //   });
+      // }
       if (item.type == 2) {
         this.$router.push({
           name: "PolicyAnalyze",
           params: {
-            item: item
-          }
+            item: item,
+          },
         });
       }
     },
@@ -518,16 +536,16 @@ export default {
           label: {
             //图中文本的样式
             normal: {
-              show: false //地图上的文本标签不显示
+              show: false, //地图上的文本标签不显示
             },
             emphasis: {
-              show: false
-            }
+              show: false,
+            },
           },
           emphasis: {
             label: {
-              show: false
-            }
+              show: false,
+            },
           },
 
           itemStyle: {
@@ -539,9 +557,9 @@ export default {
             areaColor: "rgba(9,39,93,0.26)", //区域颜色
             emphasis: {
               // 高亮状态下的样式
-              areaColor: "rgba(9,39,93,0.26)"
-            }
-          }
+              areaColor: "rgba(9,39,93,0.26)",
+            },
+          },
         },
         series: [
           {
@@ -552,11 +570,11 @@ export default {
               normal: {
                 color: "#C9852F",
                 shadowBlur: 10,
-                shadowColor: "#333"
-              }
+                shadowColor: "#333",
+              },
             },
             data: this.mapData,
-            symbolSize: function(val) {
+            symbolSize: function (val) {
               return val[2] / 5;
             },
             label: {
@@ -571,20 +589,20 @@ export default {
                 padding: [10, 10],
                 //鼠标是否可以进入提示框
                 color: "#fff",
-                formatter: function(params) {
+                formatter: function (params) {
                   return (
                     params.data.name + "\n" + "人数 : " + params.data.value[3]
                   );
                 },
                 position: "right",
-                show: false
+                show: false,
               },
               emphasis: {
-                show: true
-              }
-            }
-          }
-        ]
+                show: true,
+              },
+            },
+          },
+        ],
       };
       this.myChartMap.clear();
       this.myChartMap.setOption(this.mapOption);
@@ -607,22 +625,22 @@ export default {
 
       this.option = {
         tooltip: {
-          show: true
+          show: true,
         },
         xAxis: {
           data: dataAxis,
           axisLabel: {
             textStyle: {
-              color: "#fff"
-            }
+              color: "#fff",
+            },
           },
           axisTick: {
-            show: false
+            show: false,
           },
           axisLine: {
-            show: false
+            show: false,
           },
-          z: 10
+          z: 10,
         },
         yAxis: {
           min: 0,
@@ -631,62 +649,62 @@ export default {
           splitLine: {
             show: true,
             lineStyle: {
-              type: "dashed"
-            }
+              type: "dashed",
+            },
           },
           grid: {
-            left: 35
+            left: 35,
           },
           axisLine: {
             show: true,
             lineStyle: {
               color: "#fff",
-              type: "solid"
-            }
+              type: "solid",
+            },
           },
           axisTick: {
-            show: false
+            show: false,
           },
           axisLabel: {
             textStyle: {
-              color: "#999"
-            }
-          }
+              color: "#999",
+            },
+          },
         },
         dataZoom: [
           {
-            type: "inside"
-          }
+            type: "inside",
+          },
         ],
         series: [
           {
             // For shadow
             type: "bar",
             itemStyle: {
-              color: "rgba(0,0,0,0.05)"
+              color: "rgba(0,0,0,0.05)",
             },
             barGap: "-100%",
             barCategoryGap: "40%",
             data: dataShadow,
-            animation: false
+            animation: false,
           },
           {
             type: "bar",
             itemStyle: {
-              color: " #827EE4"
+              color: " #827EE4",
             },
             emphasis: {
               itemStyle: {
                 color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   { offset: 0, color: "#2378f7" },
                   { offset: 0.7, color: "#2378f7" },
-                  { offset: 1, color: "#83bff6" }
-                ])
-              }
+                  { offset: 1, color: "#83bff6" },
+                ]),
+              },
             },
-            data: data
-          }
-        ]
+            data: data,
+          },
+        ],
       };
       this.myChart.clear();
       this.myChart.setOption(this.option);
@@ -730,22 +748,22 @@ export default {
             this.$router.push({
               name: "Group",
               params: {
-                item: this.dataBox[i]
-              }
+                item: this.dataBox[i],
+              },
             });
           }
           if (this.dataBox[i].type == 2) {
             this.$router.push({
               name: "PolicyAnalyze",
               params: {
-                item: this.dataBox[i]
-              }
+                item: this.dataBox[i],
+              },
             });
           }
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
