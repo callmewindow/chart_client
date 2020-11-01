@@ -53,7 +53,7 @@
               </tr>
               <tr>
                 <td valign="top">事件时间：</td>
-                <td valign="top" style="height: 55px;">
+                <td valign="top" style="height: 55px">
                   <!-- <el-date-picker
                     v-model="dateValue"
                     type="date"
@@ -140,7 +140,7 @@ export default {
     return {
       showBack: true,
       backTitle: "返回",
-      title: "网络信息分析系统", //页面标题
+      title: "网络数据采集与分析系统辅助工具", //页面标题
       eventTitle: "", // 事件的标题
       eventIntro: "", // 事件的介绍
       dateValue: "", // 事件的时间
@@ -221,7 +221,13 @@ export default {
                   label: this.keywords,
                 };
                 try {
-                  console.log(this.newEvent);
+                  this.$message({
+                    showClose: true,
+                    message:
+                      "事件有关数据计算并上传中，请等待约一分钟时间，结束时会有弹框信息的提醒",
+                    type: "info",
+                    duration: 30000,
+                  });
                   let temp = await eventAPI.createEvent(
                     this.newEvent.title,
                     this.newEvent.brief,
@@ -229,15 +235,17 @@ export default {
                     // this.newEvent.date,
                     this.newEvent.label
                   );
-                  console.log(temp)
                   if (temp) {
-                    this.$message.success("新建事件成功")
+                    this.$message.success("新建事件成功，可以继续上传");
+                    this.eventTitle = "";
+                    this.eventIntro = "";
+                    this.keywords = []
                     // this.$router.push({ path: "/Group/" + temp });
                   } else {
-                    this.$message.error("上传新事件失败，请稍后再试");
+                    this.$message.error("上传新事件失败，请检查数据格式稍后再试");
                   }
                 } catch (error) {
-                  this.$message.error("上传新事件失败，请稍后再试");
+                  this.$message.error("上传新事件失败，请检查数据格式稍后再试");
                 }
                 return;
               }

@@ -1,0 +1,99 @@
+Date : 2020-07-18 13:38:39
+Directory : f:\Desktop\job\外包\中国人民公安大学项目\chart_client
+Total : 50 files,  51208 codes, 482 comments, 1803 blanks, all 53493 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         29 |     33,208 |        301 |      1,464 |     34,973 |
+| JSON       |          2 |     14,420 |          0 |          2 |     14,422 |
+| Vue        |          8 |      2,353 |        171 |         85 |      2,609 |
+| Less       |          4 |      1,034 |         10 |        189 |      1,233 |
+| Markdown   |          5 |        172 |          0 |         58 |        230 |
+| HTML       |          1 |         13 |          0 |          3 |         16 |
+| Properties |          1 |          8 |          0 |          2 |         10 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                 | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                    |         50 |     51,208 |        482 |      1,803 |     53,493 |
+| build                                                                                |          7 |        458 |         40 |         56 |        554 |
+| config                                                                               |          3 |         39 |         25 |         19 |         83 |
+| documents                                                                            |          4 |        157 |          0 |         50 |        207 |
+| src                                                                                  |         29 |     36,067 |        411 |      1,661 |     38,139 |
+| src\APIs                                                                             |          2 |         67 |         13 |         12 |         92 |
+| src\components                                                                       |          2 |        139 |          2 |         10 |        151 |
+| src\components\Head                                                                  |          1 |         88 |          2 |          8 |         98 |
+| src\components\Icon                                                                  |          1 |         51 |          0 |          2 |         53 |
+| src\pages                                                                            |          9 |      3,186 |        179 |        260 |      3,625 |
+| src\pages\AddMessage                                                                 |          2 |        417 |          4 |         36 |        457 |
+| src\pages\Group                                                                      |          2 |        963 |         49 |         65 |      1,077 |
+| src\pages\PolicyAnalyze                                                              |          2 |        762 |         27 |         68 |        857 |
+| src\pages\PoliticsInfo                                                               |          2 |        924 |         97 |         87 |      1,108 |
+| src\router                                                                           |          1 |         41 |          0 |          4 |         45 |
+| src\untils                                                                           |          6 |     15,029 |        100 |        649 |     15,778 |
+| src\untils2                                                                          |          7 |     17,520 |        112 |        717 |     18,349 |
+| static                                                                               |          1 |         24 |          4 |          0 |         28 |
+| static\js                                                                            |          1 |         24 |          4 |          0 |         28 |
+| static\js\chinamap                                                                   |          1 |         24 |          4 |          0 |         28 |
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                             | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\.editorconfig                              | Properties |          8 |          0 |          2 |         10 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\.postcssrc.js                              | JavaScript |          7 |          2 |          2 |         11 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\README.md                                  | Markdown   |         15 |          0 |          8 |         23 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\build\build.js                             | JavaScript |         35 |          0 |          7 |         42 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\build\check-versions.js                    | JavaScript |         45 |          0 |         10 |         55 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\build\utils.js                             | JavaScript |         80 |          5 |         17 |        102 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\build\vue-loader.conf.js                   | JavaScript |         21 |          0 |          2 |         23 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\build\webpack.base.conf.js                 | JavaScript |         81 |          4 |          5 |         90 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\build\webpack.dev.conf.js                  | JavaScript |         82 |          7 |          7 |         96 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\build\webpack.prod.conf.js                 | JavaScript |        114 |         24 |          8 |        146 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\config\dev.env.js                          | JavaScript |          6 |          0 |          2 |          8 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\config\index.js                            | JavaScript |         29 |         25 |         16 |         70 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\config\prod.env.js                         | JavaScript |          4 |          0 |          1 |          5 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\documents\demand.md                        | Markdown   |         47 |          0 |         13 |         60 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\documents\description.md                   | Markdown   |         16 |          0 |          6 |         22 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\documents\interactive.md                   | Markdown   |         23 |          0 |          8 |         31 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\documents\modify.md                        | Markdown   |         71 |          0 |         23 |         94 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\index.html                                 | HTML       |         13 |          0 |          3 |         16 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\package-lock.json                          | JSON       |     14,345 |          0 |          1 |     14,346 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\package.json                               | JSON       |         75 |          0 |          1 |         76 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\APIs\event.js                          | JavaScript |         63 |         12 |         11 |         86 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\APIs\global.js                         | JavaScript |          4 |          1 |          1 |          6 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\App.vue                                | Vue        |         62 |          0 |          4 |         66 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\components\Head\Head.vue               | Vue        |         88 |          2 |          8 |         98 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\components\Icon\Icon.vue               | Vue        |         51 |          0 |          2 |         53 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\main.js                                | JavaScript |         23 |          5 |          5 |         33 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\AddMessage\AddMessage.less       | Less       |        200 |          0 |         32 |        232 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\AddMessage\AddMessage.vue        | Vue        |        217 |          4 |          4 |        225 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\Group\Group.less                 | Less       |        238 |          1 |         47 |        286 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\Group\Group.vue                  | Vue        |        725 |         48 |         18 |        791 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\PolicyAnalyze\PolicyAnalyze.less | Less       |        338 |          5 |         60 |        403 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\PolicyAnalyze\PolicyAnalyze.vue  | Vue        |        424 |         22 |          8 |        454 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\PoliticsInfo\PoliticsInfo.less   | Less       |        258 |          4 |         50 |        312 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\PoliticsInfo\PoliticsInfo.vue    | Vue        |        666 |         93 |         37 |        796 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\pages\test.vue                         | Vue        |        120 |          2 |          4 |        126 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\router\index.js                        | JavaScript |         41 |          0 |          4 |         45 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils2\effectList.js                  | JavaScript |        281 |          0 |          1 |        282 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils2\jquery-1.11.3.min.js           | JavaScript |          3 |          1 |          1 |          5 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils2\newsetDate.js                  | JavaScript |      2,645 |         12 |         68 |      2,725 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils2\sad.js                         | JavaScript |     14,486 |         88 |        645 |     15,219 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils2\topic.js                       | JavaScript |         32 |          7 |          1 |         40 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils2\visitCount.js                  | JavaScript |         50 |          4 |          1 |         55 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils2\warning.js                     | JavaScript |         23 |          0 |          0 |         23 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils\effectList.js                   | JavaScript |        281 |          0 |          1 |        282 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils\jquery-1.11.3.min.js            | JavaScript |          3 |          1 |          1 |          5 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils\newsetDate.js                   | JavaScript |     14,486 |         88 |        645 |     15,219 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils\topic.js                        | JavaScript |        105 |          7 |          1 |        113 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils\visitCount.js                   | JavaScript |        118 |          4 |          1 |        123 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\src\untils\warning.js                      | JavaScript |         36 |          0 |          0 |         36 |
+| f:\Desktop\job\外包\中国人民公安大学项目\chart_client\static\js\chinamap\china.js                | JavaScript |         24 |          4 |          0 |         28 |
+| Total                                                                                |            |     51,208 |        482 |      1,803 |     53,493 |
++--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

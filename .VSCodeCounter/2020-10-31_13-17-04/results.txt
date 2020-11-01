@@ -1,0 +1,97 @@
+Date : 2020-10-31 13:17:04
+Directory : d:\Projects\chart_client
+Total : 49 files,  51238 codes, 466 comments, 1797 blanks, all 53501 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         30 |     33,208 |        307 |      1,465 |     34,980 |
+| JSON       |          2 |     14,418 |          0 |          2 |     14,420 |
+| Vue.js     |          7 |      2,389 |        149 |         79 |      2,617 |
+| Less       |          4 |      1,037 |         10 |        190 |      1,237 |
+| Markdown   |          5 |        173 |          0 |         58 |        231 |
+| HTML       |          1 |         13 |          0 |          3 |         16 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                   |         49 |     51,238 |        466 |      1,797 |     53,501 |
+| build                                                               |          7 |        458 |         40 |         56 |        554 |
+| config                                                              |          3 |         39 |         25 |         19 |         83 |
+| documents                                                           |          4 |        157 |          0 |         50 |        207 |
+| src                                                                 |         29 |     36,106 |        395 |      1,657 |     38,158 |
+| src\APIs                                                            |          3 |         77 |         14 |         13 |        104 |
+| src\components                                                      |          2 |        139 |          2 |         10 |        151 |
+| src\components\Head                                                 |          1 |         88 |          2 |          8 |         98 |
+| src\components\Icon                                                 |          1 |         51 |          0 |          2 |         53 |
+| src\pages                                                           |          8 |      3,225 |        157 |        255 |      3,637 |
+| src\pages\AddMessage                                                |          2 |        498 |          5 |         37 |        540 |
+| src\pages\Group                                                     |          2 |      1,000 |         52 |         65 |      1,117 |
+| src\pages\PolicyAnalyze                                             |          2 |        762 |         27 |         68 |        857 |
+| src\pages\PoliticsInfo                                              |          2 |        965 |         73 |         85 |      1,123 |
+| src\router                                                          |          1 |         31 |          5 |          4 |         40 |
+| src\untils                                                          |          6 |     15,029 |        100 |        649 |     15,778 |
+| src\untils_old                                                      |          7 |     17,520 |        112 |        717 |     18,349 |
+| static                                                              |          1 |         24 |          4 |          0 |         28 |
+| static\js                                                           |          1 |         24 |          4 |          0 |         28 |
+| static\js\chinamap                                                  |          1 |         24 |          4 |          0 |         28 |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                            | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\Projects\chart_client\.postcssrc.js                              | JavaScript |          7 |          2 |          2 |         11 |
+| d:\Projects\chart_client\README.md                                  | Markdown   |         16 |          0 |          8 |         24 |
+| d:\Projects\chart_client\build\build.js                             | JavaScript |         35 |          0 |          7 |         42 |
+| d:\Projects\chart_client\build\check-versions.js                    | JavaScript |         45 |          0 |         10 |         55 |
+| d:\Projects\chart_client\build\utils.js                             | JavaScript |         80 |          5 |         17 |        102 |
+| d:\Projects\chart_client\build\vue-loader.conf.js                   | JavaScript |         21 |          0 |          2 |         23 |
+| d:\Projects\chart_client\build\webpack.base.conf.js                 | JavaScript |         81 |          4 |          5 |         90 |
+| d:\Projects\chart_client\build\webpack.dev.conf.js                  | JavaScript |         82 |          7 |          7 |         96 |
+| d:\Projects\chart_client\build\webpack.prod.conf.js                 | JavaScript |        114 |         24 |          8 |        146 |
+| d:\Projects\chart_client\config\dev.env.js                          | JavaScript |          6 |          0 |          2 |          8 |
+| d:\Projects\chart_client\config\index.js                            | JavaScript |         29 |         25 |         16 |         70 |
+| d:\Projects\chart_client\config\prod.env.js                         | JavaScript |          4 |          0 |          1 |          5 |
+| d:\Projects\chart_client\documents\demand.md                        | Markdown   |         47 |          0 |         13 |         60 |
+| d:\Projects\chart_client\documents\description.md                   | Markdown   |         16 |          0 |          6 |         22 |
+| d:\Projects\chart_client\documents\interactive.md                   | Markdown   |         23 |          0 |          8 |         31 |
+| d:\Projects\chart_client\documents\modify.md                        | Markdown   |         71 |          0 |         23 |         94 |
+| d:\Projects\chart_client\index.html                                 | HTML       |         13 |          0 |          3 |         16 |
+| d:\Projects\chart_client\package-lock.json                          | JSON       |     14,345 |          0 |          1 |     14,346 |
+| d:\Projects\chart_client\package.json                               | JSON       |         73 |          0 |          1 |         74 |
+| d:\Projects\chart_client\src\APIs\event.js                          | JavaScript |         29 |          4 |          4 |         37 |
+| d:\Projects\chart_client\src\APIs\event_remain.js                   | JavaScript |         44 |          9 |          8 |         61 |
+| d:\Projects\chart_client\src\APIs\global.js                         | JavaScript |          4 |          1 |          1 |          6 |
+| d:\Projects\chart_client\src\App.vue                                | Vue.js     |         62 |          0 |          4 |         66 |
+| d:\Projects\chart_client\src\components\Head\Head.vue               | Vue.js     |         88 |          2 |          8 |         98 |
+| d:\Projects\chart_client\src\components\Icon\Icon.vue               | Vue.js     |         51 |          0 |          2 |         53 |
+| d:\Projects\chart_client\src\main.js                                | JavaScript |         23 |          5 |          5 |         33 |
+| d:\Projects\chart_client\src\pages\AddMessage\AddMessage.less       | Less       |        203 |          0 |         33 |        236 |
+| d:\Projects\chart_client\src\pages\AddMessage\AddMessage.vue        | Vue.js     |        295 |          5 |          4 |        304 |
+| d:\Projects\chart_client\src\pages\Group\Group.less                 | Less       |        238 |          1 |         47 |        286 |
+| d:\Projects\chart_client\src\pages\Group\Group.vue                  | Vue.js     |        762 |         51 |         18 |        831 |
+| d:\Projects\chart_client\src\pages\PolicyAnalyze\PolicyAnalyze.less | Less       |        338 |          5 |         60 |        403 |
+| d:\Projects\chart_client\src\pages\PolicyAnalyze\PolicyAnalyze.vue  | Vue.js     |        424 |         22 |          8 |        454 |
+| d:\Projects\chart_client\src\pages\PoliticsInfo\PoliticsInfo.less   | Less       |        258 |          4 |         50 |        312 |
+| d:\Projects\chart_client\src\pages\PoliticsInfo\PoliticsInfo.vue    | Vue.js     |        707 |         69 |         35 |        811 |
+| d:\Projects\chart_client\src\router\index.js                        | JavaScript |         31 |          5 |          4 |         40 |
+| d:\Projects\chart_client\src\untils\effectList.js                   | JavaScript |        281 |          0 |          1 |        282 |
+| d:\Projects\chart_client\src\untils\jquery-1.11.3.min.js            | JavaScript |          3 |          1 |          1 |          5 |
+| d:\Projects\chart_client\src\untils\newsetDate.js                   | JavaScript |     14,486 |         88 |        645 |     15,219 |
+| d:\Projects\chart_client\src\untils\topic.js                        | JavaScript |        105 |          7 |          1 |        113 |
+| d:\Projects\chart_client\src\untils\visitCount.js                   | JavaScript |        118 |          4 |          1 |        123 |
+| d:\Projects\chart_client\src\untils\warning.js                      | JavaScript |         36 |          0 |          0 |         36 |
+| d:\Projects\chart_client\src\untils_old\effectList.js               | JavaScript |        281 |          0 |          1 |        282 |
+| d:\Projects\chart_client\src\untils_old\jquery-1.11.3.min.js        | JavaScript |          3 |          1 |          1 |          5 |
+| d:\Projects\chart_client\src\untils_old\newsetDate.js               | JavaScript |      2,645 |         12 |         68 |      2,725 |
+| d:\Projects\chart_client\src\untils_old\sad.js                      | JavaScript |     14,486 |         88 |        645 |     15,219 |
+| d:\Projects\chart_client\src\untils_old\topic.js                    | JavaScript |         32 |          7 |          1 |         40 |
+| d:\Projects\chart_client\src\untils_old\visitCount.js               | JavaScript |         50 |          4 |          1 |         55 |
+| d:\Projects\chart_client\src\untils_old\warning.js                  | JavaScript |         23 |          0 |          0 |         23 |
+| d:\Projects\chart_client\static\js\chinamap\china.js                | JavaScript |         24 |          4 |          0 |         28 |
+| Total                                                               |            |     51,238 |        466 |      1,797 |     53,501 |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
