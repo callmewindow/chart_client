@@ -34,3 +34,19 @@ export const createEvent = (title, intro, detail, labelList) => {
     }
   });
 };
+
+// 获取统计量
+export const getCount = () => {
+  return axios({
+    method: "GET",
+    url: "/getStatic"
+  });
+};
+
+// 获取话题分布
+export const getTopic = () => {
+  return axios({
+    method: "GET",
+    url: "/getTopic"
+  });
+};

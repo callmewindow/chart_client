@@ -54,10 +54,22 @@
                       <td class="td1" valign="top">关键词：</td>
                       <td class="td2" style="padding-top:0" valign="top">
                         <ul class="news">
-                          <li class="every_news" v-for="(item,index) in keyWordList" :key="index">
+                          <li class="every_news" v-for="(item,index) in keyWordList"  :key="index">
                             <p>{{item}}</p>
                           </li>
                         </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="td1" valign="top">参与人数：</td>
+                      <td class="td2" style="padding-top:0px" valign="top">
+                        主办方：
+                        1642
+                        ；警方：
+                        327
+                        ；预测总数：
+                        3914
+                        ；
                       </td>
                     </tr>
                     <tr>
@@ -156,6 +168,9 @@
                 </div>
               </div>
             </div>
+            <div class="local-video">
+              <video id="video-player" controls src="../../assets/video/lollipop_introduction.mp4"></video>
+            </div>
           </div>
         </div>
       </div>
@@ -183,6 +198,7 @@ export default {
       title: "网络数据采集与分析系统", //页面标题
       timeSum: 60,
       // timevalue: ["2020-01-03", "2020-01-03"],
+      video_src: "../../assets/video/lollipop_introduction.mp4",
       one: false,
       two: true,
       three: true,
@@ -226,6 +242,9 @@ export default {
     this.getEventData();
   },
   mounted() {
+    // // 设置视频播放地址
+    // let videoPlayer = document.getElementById("video-player");
+    // videoPlayer.src = this.video_src;
     this.drowlineZhe();
   },
   destroyed() {},
@@ -233,7 +252,12 @@ export default {
     // 获取事件数据
     getEventData() {
       this.eventData = this.$route.params.item;
+      this.eventData.detailsynopsis = this.eventData.detailsynopsis.substring(0,250);
       this.keyWordList = this.eventData.keyWord.split(",");
+      // 最多显示四个关键词
+      for(let i = this.keyWordList.length;i>4;i = this.keyWordList.length){
+        this.keyWordList.pop();
+      }
       this.labelWordList = this.eventData.labelWord.split(",");
       this.effectList = effectList.data.resultList;
       this.webId = this.eventData.forwardList[0].nameList[0].id;

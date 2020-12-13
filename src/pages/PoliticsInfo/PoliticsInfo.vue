@@ -260,7 +260,7 @@ export default {
         observeParents: true, //修改swiper的父元素时，自动初始化swiper
       },
 
-      // 访问量数据
+      // 统计量数据
       visitCount: visitCount,
       locationVist: [],
       lanVisit: [],
@@ -271,9 +271,10 @@ export default {
       yData: [],
       option: {},
       // 地图数据与列表页数据合集
-      mapData: [], // 地图数 据
+      mapData: [], // 地图数据
       infoArr: [], // 当前时间段内发生的事件
       dataBox: [], // 全部事件的数据
+      oldDataBox: [], // 静态全部事件的数据
       myChartMap: "",
       mapOption: [],
     };
@@ -347,12 +348,17 @@ export default {
   methods: {
     async initialSet() {
       // 访问量数据处理
-      let visitCount = this.visitCount.data.resultList;
-      for (var i = 0; i < visitCount.length; i++) {
-        if (visitCount[i].type == 1) {
-          this.locationVist.push(visitCount[i]);
-        } else if (visitCount[i].type == 2) {
-          this.lanVisit.push(visitCount[i]);
+      let countReturn = await eventAPI.getCount();
+      // console.log(countReturn);
+      // let visitCount = this.visitCount.data.resultList;
+      this.visitCount = countReturn.data;
+      let tempCount = this.visitCount.data.resultList;
+      for (let i = 0; i < tempCount.length; i++) {
+
+        if (tempCount[i].type == 1) {
+          this.locationVist.push(tempCount[i]);
+        } else if (tempCount[i].type == 2) {
+          this.lanVisit.push(tempCount[i]);
         }
       }
 
@@ -360,6 +366,8 @@ export default {
       this.warningList = warning.data.resultList;
 
       //话题分布数据处理
+      let topicReturn = await eventAPI.getTopic();
+      // console.log(topicReturn);
       let topicMes = topic.data.resultList;
       for (let i = 0; i < topicMes.length; i++) {
         let obj = {
@@ -373,11 +381,12 @@ export default {
       this.value = this.options[0].label;
       this.getZheDate();
 
-      // this.dataBox = newsetDate.data.resultList;
+      this.oldDataBox = newsetDate.data.resultList;
       try {
         let eventsReturn = await eventAPI.getAllEvent();
         if (eventsReturn.status == 200) {
           this.dataBox = eventsReturn.data.data;
+          // console.log(this.dataBox);
           this.getAllData();
           // console.log(eventsReturn)
         } else {
@@ -459,6 +468,7 @@ export default {
         }
         this.mapData[j].value.push(this.infoArr[j].number);
       }
+      // console.log(this.mapData);
     },
 
     // 去涉政信息详情页或群体事件详情页
@@ -739,24 +749,25 @@ export default {
     },
 
     goEventDetail(e, y) {
-      // 还是静态数据直接跳转
-      this.$message.info("功能建设中，敬请期待");
-      return;
-      for (let i = 0; i < this.dataBox.length; i++) {
-        if (e == this.dataBox[i].id) {
-          if (this.dataBox[i].type == 1) {
-            this.$router.push({
-              name: "Group",
-              params: {
-                item: this.dataBox[i],
-              },
-            });
+      for (let i = 0; i < this.oldDataBox.length; i++) {
+        if (e == this.oldDataBox[i].id) {
+          if (this.oldDataBox[i].type == 1) {
+            // this.$router.push({
+            //   name: "Group",
+            //   params: {
+            //     item: this.oldDataBox[i],
+            //   },
+            // });
+            // 对群体进行阻止
+            this.$message.info("功能建设中，敬请期待");
+            return;
           }
-          if (this.dataBox[i].type == 2) {
+          // 涉政还是静态数据直接跳转
+          if (this.oldDataBox[i].type == 2) {
             this.$router.push({
               name: "PolicyAnalyze",
               params: {
-                item: this.dataBox[i],
+                item: this.oldDataBox[i],
               },
             });
           }
